@@ -7,33 +7,50 @@
     body {
       font-family: sans-serif;
       padding: 20px;
-      background-color: #f8f9fa;
+      background-color: #f5f7fa;
     }
 
     h2 {
       color: #168abe;
     }
 
-    .template {
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 15px;
-      cursor: pointer;
-      background-color: #fff;
-      transition: all 0.2s ease-in-out;
+    .template-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .template:hover {
-      background-color: #e8f4ff;
+    .template-card {
+      width: 300px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .template-card:hover {
+      transform: scale(1.03);
       border-color: #168abe;
+    }
+
+    .template-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .template-name {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
     pre {
       background: #1e1e1e;
       color: #d4d4d4;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 15px;
+      border-radius: 8px;
       white-space: pre-wrap;
       max-height: 400px;
       overflow-y: auto;
@@ -42,14 +59,18 @@
 </head>
 <body>
 
-  <h2>เลือก Flex Template</h2>
+  <h2>เลือก Flex Template ที่ต้องการ</h2>
 
-  <div class="template" onclick="selectTemplate('template1')">
-    🎨 Template 1: Bubble แบบเรียบง่าย
-  </div>
+  <div class="template-container">
+    <div class="template-card" onclick="selectTemplate('template1')">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip1.jpg" alt="Template 1">
+      <div class="template-name">Template 1</div>
+    </div>
 
-  <div class="template" onclick="selectTemplate('template2')">
-    🖼️ Template 2: Bubble พร้อมภาพ
+    <div class="template-card" onclick="selectTemplate('template2')">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip3.jpg" alt="Template 2">
+      <div class="template-name">Template 2</div>
+    </div>
   </div>
 
   <h3>📦 JSON ของ Template ที่เลือก:</h3>
@@ -58,163 +79,37 @@
   <script>
     const templates = {
       template1: {
-  "type": "bubble",
-  "hero": {
-    "type": "image",
-    "url": "https://developers-resource.landpress.line.me/fx/img/01_1_cafe.png",
-    "size": "full",
-    "aspectRatio": "20:13",
-    "aspectMode": "cover",
-    "action": {
-      "type": "uri",
-      "uri": "https://line.me/"
-    }
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "Brown Cafe",
-        "weight": "bold",
-        "size": "xl"
-      },
-      {
-        "type": "box",
-        "layout": "baseline",
-        "margin": "md",
-        "contents": [
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://developers-resource.landpress.line.me/fx/img/review_gray_star_28.png"
-          },
-          {
-            "type": "text",
-            "text": "4.0",
-            "size": "sm",
-            "color": "#999999",
-            "margin": "md",
-            "flex": 0
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "margin": "lg",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "Place",
-                "color": "#aaaaaa",
-                "size": "sm",
-                "flex": 1
-              },
-              {
-                "type": "text",
-                "text": "Flex Tower, 7-7-4 Midori-ku, Tokyo",
-                "wrap": true,
-                "color": "#666666",
-                "size": "sm",
-                "flex": 5
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "Time",
-                "color": "#aaaaaa",
-                "size": "sm",
-                "flex": 1
-              },
-              {
-                "type": "text",
-                "text": "10:00 - 23:00",
-                "wrap": true,
-                "color": "#666666",
-                "size": "sm",
-                "flex": 5
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "spacing": "sm",
-    "contents": [
-      {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "CALL",
-          "uri": "https://line.me/"
+        type: "bubble",
+        hero: {
+          type: "image",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
+          size: "full",
+          aspectRatio: "2:3",
+          aspectMode: "cover"
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "Flex Template 1",
+              weight: "bold",
+              size: "xl"
+            },
+            {
+              type: "text",
+              text: "รายละเอียดเพิ่มเติมของเทมเพลต",
+              wrap: true
+            }
+          ]
         }
       },
-      {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "SHARE",
-          "uri": "https://liff.line.me/2007226288-WvjAdxZj?id=7"
-        }
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [],
-        "margin": "sm"
-      }
-    ],
-    "flex": 0
-  }
-},
-
       template2: {
         type: "bubble",
         hero: {
           type: "image",
-          url: "https://example.com/sample.jpg",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
           size: "full",
           aspectRatio: "1.51:1",
           aspectMode: "cover"
@@ -225,9 +120,14 @@
           contents: [
             {
               type: "text",
-              text: "Image Header",
+              text: "Flex Template 2",
               weight: "bold",
-              size: "lg"
+              size: "xl"
+            },
+            {
+              type: "text",
+              text: "ข้อความเพิ่มเติม",
+              wrap: true
             }
           ]
         }
