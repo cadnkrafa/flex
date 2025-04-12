@@ -4,78 +4,39 @@
   <meta charset="UTF-8">
   <title>เลือก Flex Template</title>
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-      background-color: #f5f7fa;
-    }
-
-    h2 {
-      color: #168abe;
-    }
-
-    .template-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
     .template-card {
-      width: 100%;
-      max-width: 500px;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 15px;
-      background-color: #fff;
-      transition: box-shadow 0.2s ease-in-out;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+      background: #f9f9f9;
     }
-
-    .template-card:hover {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-color: #168abe;
+    .flex-preview {
+      border: 1px solid #ddd;
+      margin-top: 8px;
+      padding: 12px;
+      background: #fff;
     }
-
-    .template-card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .template-name {
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .template-desc {
-      color: #555;
-      margin: 5px 0 10px;
-    }
-
     pre {
-      background: #1e1e1e;
-      color: #d4d4d4;
+      background: #222;
+      color: #0f0;
       padding: 10px;
       border-radius: 8px;
-      white-space: pre-wrap;
-      max-height: 300px;
-      overflow-y: auto;
-      font-size: 0.85em;
+      overflow-x: auto;
     }
   </style>
 </head>
 <body>
-
-  <h2>เลือก Flex Template ที่ต้องการ</h2>
-
-  <div class="template-container" id="templateContainer"></div>
+  <h2>เลือก Flex Template</h2>
+  <div id="template-list"></div>
 
   <script>
     const templates = [
       {
-        name: "Template 1",
-        description: "แสดงรูปภาพแบบ 2:3 พร้อมหัวข้อและรายละเอียด",
-        image: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
-        json: {
+        name: "โปรโมชั่นร้านค้า",
+        altText: "โปรโมชั่นพิเศษ!",
+        imageUrl: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
+        flexJson: {
           type: "bubble",
           hero: {
             type: "image",
@@ -87,49 +48,53 @@
           body: {
             type: "box",
             layout: "vertical",
+            spacing: "md",
             contents: [
               {
                 type: "text",
-                text: "Flex Template 1",
+                text: "โปรโมชั่นพิเศษ!",
+                wrap: true,
                 weight: "bold",
                 size: "xl"
               },
               {
-                type: "text",
-                text: "รายละเอียดเพิ่มเติมของเทมเพลตนี้",
-                wrap: true
+                type: "button",
+                style: "primary",
+                color: "#00c300",
+                action: {
+                  type: "uri",
+                  label: "ดูรายละเอียด",
+                  uri: "https://example.com"
+                }
               }
             ]
           }
         }
       },
       {
-        name: "Template 2",
-        description: "เน้นภาพแนวกว้าง 1.51:1 พร้อมข้อความ",
-        image: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
-        json: {
+        name: "ลงทะเบียนกิจกรรม",
+        altText: "ลงทะเบียน",
+        imageUrl: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
+        flexJson: {
           type: "bubble",
-          hero: {
-            type: "image",
-            url: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
-            size: "full",
-            aspectRatio: "1.51:1",
-            aspectMode: "cover"
-          },
           body: {
             type: "box",
             layout: "vertical",
             contents: [
               {
                 type: "text",
-                text: "Flex Template 2",
+                text: "ร่วมกิจกรรมพิเศษ",
                 weight: "bold",
                 size: "xl"
               },
               {
-                type: "text",
-                text: "ข้อความเพิ่มเติมของเทมเพลตนี้",
-                wrap: true
+                type: "button",
+                style: "primary",
+                action: {
+                  type: "uri",
+                  label: "สมัครเลย",
+                  uri: "https://example.com/register"
+                }
               }
             ]
           }
@@ -137,22 +102,30 @@
       }
     ];
 
-    const container = document.getElementById("templateContainer");
-
-    templates.forEach(template => {
-      const card = document.createElement("div");
-      card.className = "template-card";
+    const container = document.getElementById('template-list');
+    templates.forEach((tpl, index) => {
+      const card = document.createElement('div');
+      card.className = 'template-card';
 
       card.innerHTML = `
-        <img src="${template.image}" alt="${template.name}">
-        <div class="template-name">${template.name}</div>
-        <div class="template-desc">${template.description}</div>
-        <pre>${JSON.stringify(template.json, null, 2)}</pre>
+        <h3>${tpl.name}</h3>
+        <div class="flex-preview">
+          <img src="${tpl.imageUrl}" width="240" />
+          <p><strong>altText:</strong> ${tpl.altText}</p>
+        </div>
+        <pre>${JSON.stringify(tpl.flexJson, null, 2)}</pre>
+        <button onclick="useTemplate(${index})">เลือกใช้งาน</button>
       `;
 
       container.appendChild(card);
     });
-  </script>
 
+    function useTemplate(index) {
+      const selected = templates[index];
+      localStorage.setItem('selectedTemplate', JSON.stringify(selected));
+      alert(`เลือก Template: ${selected.name}`);
+      // หรือจะ redirect ไปหน้า Share หรือหน้าแก้ไขก็ได้
+    }
+  </script>
 </body>
 </html>
