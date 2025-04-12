@@ -4,128 +4,152 @@
   <meta charset="UTF-8">
   <title>เลือก Flex Template</title>
   <style>
-    .template-card {
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 16px 0;
-      background: #f9f9f9;
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f8f9fa;
     }
-    .flex-preview {
-      border: 1px solid #ddd;
-      margin-top: 8px;
-      padding: 12px;
-      background: #fff;
+
+    h2 {
+      color: #168abe;
     }
+
+    .template {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      background-color: #fff;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .template:hover {
+      background-color: #e8f4ff;
+      border-color: #168abe;
+    }
+
     pre {
-      background: #222;
-      color: #0f0;
+      background: #1e1e1e;
+      color: #d4d4d4;
       padding: 10px;
-      border-radius: 8px;
-      overflow-x: auto;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
     }
   </style>
 </head>
 <body>
+
   <h2>เลือก Flex Template</h2>
-  <div id="template-list"></div>
+
+  <div class="template" onclick="selectTemplate('template1')">
+    🎨 Template 1: Bubble แบบเรียบง่าย
+  </div>
+
+  <div class="template" onclick="selectTemplate('template2')">
+    🖼️ Template 2: Bubble พร้อมภาพ
+  </div>
+
+  <h3>📦 JSON ของ Template ที่เลือก:</h3>
+  <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
+
+  <h3>🖥️ Live Preview:</h3>
+  <iframe id="livePreview" src="about:blank"></iframe>
 
   <script>
-    const templates = [
-      {
-        name: "โปรโมชั่นร้านค้า",
-        altText: "โปรโมชั่นพิเศษ!",
-        imageUrl: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
-        flexJson: {
-          type: "bubble",
-          hero: {
-            type: "image",
-            url: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
-            size: "full",
-            aspectRatio: "2:3",
-            aspectMode: "cover"
-          },
-          body: {
-            type: "box",
-            layout: "vertical",
-            spacing: "md",
-            contents: [
-              {
-                type: "text",
-                text: "โปรโมชั่นพิเศษ!",
-                wrap: true,
-                weight: "bold",
-                size: "xl"
-              },
-              {
-                type: "button",
-                style: "primary",
-                color: "#00c300",
-                action: {
-                  type: "uri",
-                  label: "ดูรายละเอียด",
-                  uri: "https://example.com"
-                }
-              }
-            ]
-          }
+    const templates = {
+      template1: {
+        type: "bubble",
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "Hello, World!",
+              weight: "bold",
+              size: "lg",
+              color: "#333333"
+            }
+          ]
         }
       },
-      {
-        name: "ลงทะเบียนกิจกรรม",
-        altText: "ลงทะเบียน",
-        imageUrl: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
-        flexJson: {
-          type: "bubble",
-          body: {
-            type: "box",
-            layout: "vertical",
-            contents: [
-              {
-                type: "text",
-                text: "ร่วมกิจกรรมพิเศษ",
-                weight: "bold",
-                size: "xl"
-              },
-              {
-                type: "button",
-                style: "primary",
-                action: {
-                  type: "uri",
-                  label: "สมัครเลย",
-                  uri: "https://example.com/register"
-                }
-              }
-            ]
-          }
+
+      template2: {
+        type: "bubble",
+        hero: {
+          type: "image",
+          url: "https://example.com/sample.jpg",
+          size: "full",
+          aspectRatio: "1.51:1",
+          aspectMode: "cover"
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "Image Header",
+              weight: "bold",
+              size: "lg"
+            }
+          ]
         }
       }
-    ];
+    };
 
-    const container = document.getElementById('template-list');
-    templates.forEach((tpl, index) => {
-      const card = document.createElement('div');
-      card.className = 'template-card';
+    function selectTemplate(key) {
+      const template = templates[key];
+      localStorage.setItem("selectedFlexJson", JSON.stringify(template));
 
-      card.innerHTML = `
-        <h3>${tpl.name}</h3>
-        <div class="flex-preview">
-          <img src="${tpl.imageUrl}" width="240" />
-          <p><strong>altText:</strong> ${tpl.altText}</p>
-        </div>
-        <pre>${JSON.stringify(tpl.flexJson, null, 2)}</pre>
-        <button onclick="useTemplate(${index})">เลือกใช้งาน</button>
-      `;
+      // แสดง JSON ของ Template ที่เลือก
+      document.getElementById("jsonOutput").textContent = JSON.stringify(template, null, 2);
 
-      container.appendChild(card);
-    });
+      // แสดง Live Preview
+      updateLivePreview(template);
+    }
 
-    function useTemplate(index) {
-      const selected = templates[index];
-      localStorage.setItem('selectedTemplate', JSON.stringify(selected));
-      alert(`เลือก Template: ${selected.name}`);
-      // หรือจะ redirect ไปหน้า Share หรือหน้าแก้ไขก็ได้
+    function updateLivePreview(template) {
+      const iframe = document.getElementById("livePreview");
+      const iframeDoc = iframe.contentWindow.document;
+      iframeDoc.open();
+      iframeDoc.write(`
+        <html>
+          <head>
+            <title>Live Flex Preview</title>
+          </head>
+          <body>
+            <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+            <script>
+              window.onload = () => {
+                liff.init({ liffId: "2007226288-WvjAdxZj" }).then(() => {
+                  liff.sendMessages([{
+                    type: "flex",
+                    altText: "Live Flex Message",
+                    contents: ${JSON.stringify(template)}
+                  }]).then(() => {
+                    alert("Flex Message sent successfully!");
+                  }).catch((err) => {
+                    alert("Error sending message: " + err);
+                  });
+                });
+              };
+            </script>
+          </body>
+        </html>
+      `);
+      iframeDoc.close();
     }
   </script>
+
 </body>
 </html>
