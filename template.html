@@ -88,8 +88,28 @@
     </div>
 
     <div class="template-card" onclick="selectTemplate('template2')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip3.jpg" alt="Template 2">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip2.jpg" alt="Template 2">
       <div class="template-name">Template 2</div>
+    </div>
+
+    <div class="template-card" onclick="selectTemplate('template3')">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip3.jpg" alt="Template 3">
+      <div class="template-name">Template 3</div>
+    </div>
+
+    <div class="template-card" onclick="selectTemplate('template4')">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip4.jpg" alt="Template 4">
+      <div class="template-name">Template 4</div>
+    </div>
+
+    <div class="template-card" onclick="selectTemplate('template5')">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip5.jpg" alt="Template 5">
+      <div class="template-name">Template 5</div>
+    </div>
+
+    <div class="template-card" onclick="selectTemplate('template6')">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip6.jpg" alt="Template 6">
+      <div class="template-name">Template 6</div>
     </div>
   </div>
 
@@ -112,17 +132,8 @@
           type: "box",
           layout: "vertical",
           contents: [
-            {
-              type: "text",
-              text: "Flex Template 1",
-              weight: "bold",
-              size: "xl"
-            },
-            {
-              type: "text",
-              text: "รายละเอียดเพิ่มเติมของเทมเพลต",
-              wrap: true
-            }
+            { type: "text", text: "Template 1", weight: "bold", size: "xl" },
+            { type: "text", text: "รายละเอียดเพิ่มเติมของเทมเพลต", wrap: true }
           ]
         }
       },
@@ -130,26 +141,89 @@
         type: "bubble",
         hero: {
           type: "image",
-          url: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip2.jpg",
           size: "full",
-          aspectRatio: "1.51:1",
+          aspectRatio: "2:3",
           aspectMode: "cover"
         },
         body: {
           type: "box",
           layout: "vertical",
           contents: [
-            {
-              type: "text",
-              text: "Flex Template 2",
-              weight: "bold",
-              size: "xl"
-            },
-            {
-              type: "text",
-              text: "ข้อความเพิ่มเติม",
-              wrap: true
-            }
+            { type: "text", text: "Template 2", weight: "bold", size: "xl" },
+            { type: "text", text: "ข้อมูลบางอย่างที่ควรรู้", wrap: true }
+          ]
+        }
+      },
+      template3: {
+        type: "bubble",
+        hero: {
+          type: "image",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
+          size: "full",
+          aspectRatio: "2:3",
+          aspectMode: "cover"
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            { type: "text", text: "Template 3", weight: "bold", size: "xl" },
+            { type: "text", text: "คำอธิบายของเทมเพลตนี้", wrap: true }
+          ]
+        }
+      },
+      template4: {
+        type: "bubble",
+        hero: {
+          type: "image",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip4.jpg",
+          size: "full",
+          aspectRatio: "2:3",
+          aspectMode: "cover"
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            { type: "text", text: "Template 4", weight: "bold", size: "xl" },
+            { type: "text", text: "ใช้สำหรับโชว์ภาพสินค้า", wrap: true }
+          ]
+        }
+      },
+      template5: {
+        type: "bubble",
+        hero: {
+          type: "image",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip5.jpg",
+          size: "full",
+          aspectRatio: "2:3",
+          aspectMode: "cover"
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            { type: "text", text: "Template 5", weight: "bold", size: "xl" },
+            { type: "text", text: "ดีไซน์ทันสมัย", wrap: true }
+          ]
+        }
+      },
+      template6: {
+        type: "bubble",
+        hero: {
+          type: "image",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip6.jpg",
+          size: "full",
+          aspectRatio: "2:3",
+          aspectMode: "cover"
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            { type: "text", text: "Template 6", weight: "bold", size: "xl" },
+            { type: "text", text: "ออกแบบสำหรับบริการ", wrap: true }
           ]
         }
       }
