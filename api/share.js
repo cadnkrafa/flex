@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   }
 
   const { id } = req.query;
-  const googleSheetUrl = `https://script.google.com/macros/s/AKfycbx0xL77IWSYsrcHfo8N3uh-5DbtTd5_jFpXs36Mj6zLt8ejiqB_q0iNlOCD6y7mLB0/exec?id=${id}`;
+  const googleSheetUrl = `https://script.google.com/macros/s/AKfycbzccmYXxndkmToIFFILe8ax_lhmnuoHiA1wAaZeyqzHaa9YH6LvU_WfEdnJQdCTJKe0/exec?id=${id}`;
 
   try {
     const response = await fetch(googleSheetUrl);
