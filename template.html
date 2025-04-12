@@ -8,31 +8,39 @@
       font-family: sans-serif;
       padding: 20px;
       background-color: #f5f7fa;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
     }
 
     h2 {
       color: #168abe;
+      width: 100%;
+      text-align: center;
     }
 
     .template-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .template-card {
       width: 300px;
+      height: 400px;
+      overflow-y: auto;
       border: 2px solid #ccc;
       border-radius: 10px;
       padding: 10px;
       background-color: #fff;
+    }
+
+    .template-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
       cursor: pointer;
-      transition: transform 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      background-color: #fff;
     }
 
     .template-card:hover {
-      transform: scale(1.03);
+      background-color: #e8f4ff;
       border-color: #168abe;
     }
 
@@ -47,25 +55,14 @@
       margin-top: 10px;
     }
 
-    .main-content {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .image-container {
-      flex: 1;
-      margin-right: 20px;
-      overflow-x: auto;
-      max-width: 500px;
-    }
-
     .json-container {
-      flex: 2;
+      flex: 1;
       background-color: #1e1e1e;
       color: #d4d4d4;
       padding: 20px;
       border-radius: 8px;
-      max-width: 600px;
+      height: 400px;
+      overflow-y: auto;
     }
 
     pre {
@@ -105,19 +102,10 @@
     </div>
   </div>
 
-  <div class="main-content">
-    <!-- Image Section -->
-    <div class="image-container">
-      <h3>📸 ตัวอย่างภาพ</h3>
-      <img id="templateImage" src="" alt="Template Image" style="width: 100%; border-radius: 8px;">
-    </div>
-
-    <!-- JSON Code Section -->
-    <div class="json-container">
-      <h3>📦 JSON ของ Template ที่เลือก:</h3>
-      <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
-      <button id="copyButton" onclick="copyCode()" style="display:none;">คัดลอกโค้ด</button>
-    </div>
+  <div class="json-container">
+    <h3>📦 JSON ของ Template ที่เลือก:</h3>
+    <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
+    <button id="copyButton" onclick="copyCode()" style="display:none;">คัดลอกโค้ด</button>
   </div>
 
   <script>
@@ -180,7 +168,6 @@
 
     function selectTemplate(key) {
       const template = templates[key];
-      document.getElementById("templateImage").src = template.hero.url; // Set the image
       document.getElementById("jsonOutput").textContent = JSON.stringify(template, null, 2);
       document.getElementById("copyButton").style.display = "inline-block"; // Show copy button
     }
