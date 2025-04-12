@@ -83,37 +83,41 @@
 
   <div class="template-scroll">
     <div class="template-card" onclick="selectTemplate('template1')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip1.jpg" alt="Template 1">
       <div class="template-name">Template 1</div>
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip1.jpg" alt="Template 1">
     </div>
 
     <div class="template-card" onclick="selectTemplate('template2')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip2.jpg" alt="Template 2">
       <div class="template-name">Template 2</div>
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip2.jpg" alt="Template 2">
     </div>
 
     <div class="template-card" onclick="selectTemplate('template3')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip3.jpg" alt="Template 3">
       <div class="template-name">Template 3</div>
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip3.jpg" alt="Template 3">
     </div>
 
     <div class="template-card" onclick="selectTemplate('template4')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip4.jpg" alt="Template 4">
       <div class="template-name">Template 4</div>
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip4.jpg" alt="Template 4">
     </div>
 
     <div class="template-card" onclick="selectTemplate('template5')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip5.jpg" alt="Template 5">
       <div class="template-name">Template 5</div>
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip5.jpg" alt="Template 5">
     </div>
 
     <div class="template-card" onclick="selectTemplate('template6')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip6.jpg" alt="Template 6">
       <div class="template-name">Template 6</div>
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip6.jpg" alt="Template 6">
     </div>
   </div>
 
-  <button id="copyButton" class="copy-btn" onclick="copyCode()" style="display: none;">📋 คัดลอกโค้ด JSON</button>
+  <div id="codelink" style="display: none;">
+      <button id="copyButton" class="copy-btn" onclick="copyCode()">📋 คัดลอกโค้ด JSON</button>&nbsp;&nbsp;
+      ออกแบบ Flex Message ได้ที่นี่: 
+      <a href="https://developers.line.biz/flex-simulator/" target="_blank">https://developers.line.biz/flex-simulator/</a>
+  </div>
 
   <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
 
@@ -232,7 +236,7 @@
     function selectTemplate(key) {
       const template = templates[key];
       document.getElementById("jsonOutput").textContent = JSON.stringify(template, null, 2);
-      document.getElementById("copyButton").style.display = "inline-block";
+      document.getElementById("codelink").style.display = "inline-block";
     }
 
     function copyCode() {
