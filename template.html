@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -18,6 +18,7 @@
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
     .template-card {
@@ -46,14 +47,30 @@
       margin-top: 10px;
     }
 
-    pre {
-      background: #1e1e1e;
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .image-container {
+      flex: 1;
+      margin-right: 20px;
+      overflow-x: auto;
+      max-width: 500px;
+    }
+
+    .json-container {
+      flex: 2;
+      background-color: #1e1e1e;
       color: #d4d4d4;
-      padding: 15px;
+      padding: 20px;
       border-radius: 8px;
+      max-width: 600px;
+    }
+
+    pre {
       white-space: pre-wrap;
-      max-height: 400px;
-      overflow-y: auto;
+      word-wrap: break-word;
     }
 
     button {
@@ -88,10 +105,20 @@
     </div>
   </div>
 
-  <h3>📦 JSON ของ Template ที่เลือก:</h3>
-  <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
+  <div class="main-content">
+    <!-- Image Section -->
+    <div class="image-container">
+      <h3>📸 ตัวอย่างภาพ</h3>
+      <img id="templateImage" src="" alt="Template Image" style="width: 100%; border-radius: 8px;">
+    </div>
 
-  <button id="copyButton" onclick="copyCode()" style="display:none;">คัดลอกโค้ด</button>
+    <!-- JSON Code Section -->
+    <div class="json-container">
+      <h3>📦 JSON ของ Template ที่เลือก:</h3>
+      <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
+      <button id="copyButton" onclick="copyCode()" style="display:none;">คัดลอกโค้ด</button>
+    </div>
+  </div>
 
   <script>
     const templates = {
@@ -153,26 +180,27 @@
 
     function selectTemplate(key) {
       const template = templates[key];
+      document.getElementById("templateImage").src = template.hero.url; // Set the image
       document.getElementById("jsonOutput").textContent = JSON.stringify(template, null, 2);
-      document.getElementById("copyButton").style.display = "inline-block"; // แสดงปุ่มคัดลอกโค้ด
+      document.getElementById("copyButton").style.display = "inline-block"; // Show copy button
     }
 
     function copyCode() {
       const jsonCode = document.getElementById("jsonOutput").textContent;
 
-      // สร้าง textarea ชั่วคราวสำหรับคัดลอก
+      // Create a temporary textarea to copy the code
       const textArea = document.createElement("textarea");
       textArea.value = jsonCode;
       document.body.appendChild(textArea);
 
-      // เลือกและคัดลอกข้อความ
+      // Select and copy the text
       textArea.select();
       document.execCommand("copy");
 
-      // ลบ textarea ออกจาก DOM
+      // Remove the temporary textarea
       document.body.removeChild(textArea);
 
-      // แจ้งผู้ใช้ว่าโค้ดถูกคัดลอก
+      // Notify the user that the code has been copied
       alert("โค้ด JSON ถูกคัดลอกไปยัง clipboard แล้ว!");
     }
   </script>
