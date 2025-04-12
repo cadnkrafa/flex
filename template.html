@@ -21,17 +21,17 @@
     }
 
     .template-card {
-      width: 300px;
+      width: 100%;
+      max-width: 500px;
       border: 2px solid #ccc;
       border-radius: 10px;
-      padding: 10px;
+      padding: 15px;
       background-color: #fff;
-      cursor: pointer;
-      transition: transform 0.2s ease-in-out;
+      transition: box-shadow 0.2s ease-in-out;
     }
 
     .template-card:hover {
-      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-color: #168abe;
     }
 
@@ -41,19 +41,25 @@
     }
 
     .template-name {
-      text-align: center;
+      font-size: 1.2em;
       font-weight: bold;
       margin-top: 10px;
+    }
+
+    .template-desc {
+      color: #555;
+      margin: 5px 0 10px;
     }
 
     pre {
       background: #1e1e1e;
       color: #d4d4d4;
-      padding: 15px;
+      padding: 10px;
       border-radius: 8px;
       white-space: pre-wrap;
-      max-height: 400px;
+      max-height: 300px;
       overflow-y: auto;
+      font-size: 0.85em;
     }
   </style>
 </head>
@@ -61,84 +67,91 @@
 
   <h2>เลือก Flex Template ที่ต้องการ</h2>
 
-  <div class="template-container">
-    <div class="template-card" onclick="selectTemplate('template1')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip1.jpg" alt="Template 1">
-      <div class="template-name">Template 1</div>
-    </div>
-
-    <div class="template-card" onclick="selectTemplate('template2')">
-      <img src="https://developers-resource.landpress.line.me/fx/clip/clip3.jpg" alt="Template 2">
-      <div class="template-name">Template 2</div>
-    </div>
-  </div>
-
-  <h3>📦 JSON ของ Template ที่เลือก:</h3>
-  <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
+  <div class="template-container" id="templateContainer"></div>
 
   <script>
-    const templates = {
-      template1: {
-        type: "bubble",
-        hero: {
-          type: "image",
-          url: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
-          size: "full",
-          aspectRatio: "2:3",
-          aspectMode: "cover"
-        },
-        body: {
-          type: "box",
-          layout: "vertical",
-          contents: [
-            {
-              type: "text",
-              text: "Flex Template 1",
-              weight: "bold",
-              size: "xl"
-            },
-            {
-              type: "text",
-              text: "รายละเอียดเพิ่มเติมของเทมเพลต",
-              wrap: true
-            }
-          ]
+    const templates = [
+      {
+        name: "Template 1",
+        description: "แสดงรูปภาพแบบ 2:3 พร้อมหัวข้อและรายละเอียด",
+        image: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
+        json: {
+          type: "bubble",
+          hero: {
+            type: "image",
+            url: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
+            size: "full",
+            aspectRatio: "2:3",
+            aspectMode: "cover"
+          },
+          body: {
+            type: "box",
+            layout: "vertical",
+            contents: [
+              {
+                type: "text",
+                text: "Flex Template 1",
+                weight: "bold",
+                size: "xl"
+              },
+              {
+                type: "text",
+                text: "รายละเอียดเพิ่มเติมของเทมเพลตนี้",
+                wrap: true
+              }
+            ]
+          }
         }
       },
-      template2: {
-        type: "bubble",
-        hero: {
-          type: "image",
-          url: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
-          size: "full",
-          aspectRatio: "1.51:1",
-          aspectMode: "cover"
-        },
-        body: {
-          type: "box",
-          layout: "vertical",
-          contents: [
-            {
-              type: "text",
-              text: "Flex Template 2",
-              weight: "bold",
-              size: "xl"
-            },
-            {
-              type: "text",
-              text: "ข้อความเพิ่มเติม",
-              wrap: true
-            }
-          ]
+      {
+        name: "Template 2",
+        description: "เน้นภาพแนวกว้าง 1.51:1 พร้อมข้อความ",
+        image: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
+        json: {
+          type: "bubble",
+          hero: {
+            type: "image",
+            url: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
+            size: "full",
+            aspectRatio: "1.51:1",
+            aspectMode: "cover"
+          },
+          body: {
+            type: "box",
+            layout: "vertical",
+            contents: [
+              {
+                type: "text",
+                text: "Flex Template 2",
+                weight: "bold",
+                size: "xl"
+              },
+              {
+                type: "text",
+                text: "ข้อความเพิ่มเติมของเทมเพลตนี้",
+                wrap: true
+              }
+            ]
+          }
         }
       }
-    };
+    ];
 
-    function selectTemplate(key) {
-      const template = templates[key];
-      localStorage.setItem("selectedFlexJson", JSON.stringify(template));
-      document.getElementById("jsonOutput").textContent = JSON.stringify(template, null, 2);
-    }
+    const container = document.getElementById("templateContainer");
+
+    templates.forEach(template => {
+      const card = document.createElement("div");
+      card.className = "template-card";
+
+      card.innerHTML = `
+        <img src="${template.image}" alt="${template.name}">
+        <div class="template-name">${template.name}</div>
+        <div class="template-desc">${template.description}</div>
+        <pre>${JSON.stringify(template.json, null, 2)}</pre>
+      `;
+
+      container.appendChild(card);
+    });
   </script>
 
 </body>
