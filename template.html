@@ -8,36 +8,30 @@
       font-family: sans-serif;
       padding: 20px;
       background-color: #f5f7fa;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
     }
 
     h2 {
       color: #168abe;
-      width: 100%;
       text-align: center;
     }
 
-    .template-container {
-      width: 300px;
-      height: 400px;
-      overflow-y: auto;
+    .template-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+
+    .template-card {
+      flex: 0 0 auto;
+      width: 220px;
       border: 2px solid #ccc;
       border-radius: 10px;
       padding: 10px;
       background-color: #fff;
-      flex-shrink: 0; /* Prevent shrinking */
-    }
-
-    .template-card {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 10px;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
-      background-color: #fff;
     }
 
     .template-card:hover {
@@ -56,35 +50,30 @@
       margin-top: 10px;
     }
 
-    .json-container {
-      background-color: #1e1e1e;
-      color: #d4d4d4;
-      padding: 20px;
-      border-radius: 8px;
-      height: 400px;
-      overflow-y: auto;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-
-    button {
+    .copy-btn {
       background-color: #168abe;
       color: white;
-      padding: 10px 20px;
+      padding: 10px 16px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
-      margin-top: 10px;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
 
-    button:hover {
+    .copy-btn:hover {
       background-color: #005775;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-height: 400px;
+      overflow-y: auto;
     }
   </style>
 </head>
@@ -92,7 +81,7 @@
 
   <h2>เลือก Flex Template ที่ต้องการ</h2>
 
-  <div class="template-container">
+  <div class="template-scroll">
     <div class="template-card" onclick="selectTemplate('template1')">
       <img src="https://developers-resource.landpress.line.me/fx/clip/clip1.jpg" alt="Template 1">
       <div class="template-name">Template 1</div>
@@ -104,11 +93,9 @@
     </div>
   </div>
 
-  <div class="json-container">
-    <h3>📦 JSON ของ Template ที่เลือก:</h3>
-    <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
-    <button id="copyButton" onclick="copyCode()" style="display:none;">คัดลอกโค้ด</button>
-  </div>
+  <button id="copyButton" class="copy-btn" onclick="copyCode()" style="display: none;">📋 คัดลอกโค้ด JSON</button>
+
+  <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
 
   <script>
     const templates = {
@@ -171,26 +158,14 @@
     function selectTemplate(key) {
       const template = templates[key];
       document.getElementById("jsonOutput").textContent = JSON.stringify(template, null, 2);
-      document.getElementById("copyButton").style.display = "inline-block"; // Show copy button
+      document.getElementById("copyButton").style.display = "inline-block";
     }
 
     function copyCode() {
-      const jsonCode = document.getElementById("jsonOutput").textContent;
-
-      // Create a temporary textarea to copy the code
-      const textArea = document.createElement("textarea");
-      textArea.value = jsonCode;
-      document.body.appendChild(textArea);
-
-      // Select and copy the text
-      textArea.select();
-      document.execCommand("copy");
-
-      // Remove the temporary textarea
-      document.body.removeChild(textArea);
-
-      // Notify the user that the code has been copied
-      alert("โค้ด JSON ถูกคัดลอกไปยัง clipboard แล้ว!");
+      const code = document.getElementById("jsonOutput").textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        alert("โค้ด JSON ถูกคัดลอกแล้ว!");
+      });
     }
   </script>
 
