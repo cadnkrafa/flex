@@ -81,16 +81,16 @@
             background-color: #004e71; 
         }
         .button-row {
+            width: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            justify-content: center;     /* จัดตรงกลางแนวนอน */
             margin-bottom: 20px;
-            flex-wrap: wrap;
         }
-        .small-btn {
-            width: auto !important;
-            display: inline-block !important;
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .support-section {
             text-align: center;
@@ -438,12 +438,14 @@
     </div>
   
     <div id="example" class="button-row" style="display: none;">
-        <button class="template-btn small-btn" onclick="window.open('https://flex-one.vercel.app/template.html', '_blank')">
+        <div class="button-container">
+            <button class="template-btn" onclick="window.open('https://flex-one.vercel.app/template.html', '_blank')">
             📋 เลือก Flex Message Template
-        </button>
-        <button class="simulator-btn small-btn" onclick="window.open('https://developers.line.biz/flex-simulator/', '_blank')">
+            </button>
+            <button class="simulator-btn" onclick="window.open('https://developers.line.biz/flex-simulator/', '_blank')">
             🎨 ออกแบบ Flex Message ได้ที่นี่
-        </button>
+            </button>
+        </div>
     </div>
   
     <div id="formContainer" style="display: none;">
