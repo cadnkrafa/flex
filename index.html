@@ -89,7 +89,7 @@
             flex-wrap: wrap;             /* ถ้าจอเล็กจะขึ้นบรรทัดใหม่ */
             max-width: 100%;
         }
-        .template-btn,.simulator-btn {
+        .template-btn,.simulator-btn,.pic-btn {
             padding: 10px 16px;
             border-radius: 5px;
             font-size: 14px;
@@ -111,6 +111,13 @@
         }
         .simulator-btn:hover {
             background-color: #00a000;
+        }
+        .pic-btn {
+            background-color: #6500ff;
+            color: white;
+        }
+        .pic-btn:hover {
+            background-color: #3a0191;
         }
         .support-section {
             text-align: center;
@@ -432,6 +439,9 @@
     <div id="example" class="button-wrapper" style="display: none;">
         <button class="template-btn" onclick="window.open('https://flex-one.vercel.app/template.html', '_blank')">
         📋 เลือก Template
+        </button>
+        <button class="pic-btn" onclick="window.open('https://pic.in.th/', '_blank')">
+        🖼️ ฝากภาพ
         </button>
         <button class="simulator-btn" onclick="window.open('https://developers.line.biz/flex-simulator/', '_blank')">
         🎨 ออกแบบ Flex Message
