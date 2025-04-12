@@ -104,6 +104,33 @@
             border-radius: 15px !important; /* Rounder corners */
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3) !important; /* Add shadow */
         }
+        .template-btn {
+            background-color: #168abe;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .template-btn:hover {
+            background-color: #005775;
+        }
+        .simulator-btn {
+          background-color: #00b900;
+          color: white;
+          color: white;
+          padding: 10px 16px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+        .simulator-btn:hover {
+            background-color: #00a000;
+        }
         /* Logout button */
         #btnLogout {
             position: fixed;
@@ -396,14 +423,8 @@
     </div>
 
     <div id="formContainer" style="display: none;">
-        <p style="text-align: center; font-size: 14px;">
-            เลือก Flex Message Template: 
-            <a href="https://flex-one.vercel.app/template.html" target="_blank">https://flex-one.vercel.app/template.html/</a>
-        </p>
-        <p style="text-align: center; font-size: 14px;">
-            ออกแบบ Flex Message ได้ที่นี่: 
-            <a href="https://developers.line.biz/flex-simulator/" target="_blank">https://developers.line.biz/flex-simulator/</a>
-        </p>
+        <button class="template-btn" onclick="window.open('https://flex-one.vercel.app/template.html', '_blank')">📋 เลือก Flex Message Template</button>&nbsp;&nbsp;
+        <button class="simulator-btn" onclick="window.open('https://developers.line.biz/flex-simulator/', '_blank')">🎨 ออกแบบ Flex Message ได้ที่นี่</button>
         <form id="flexJsonForm">
             <!-- แสดง ID ถัดไป -->
             <div id="nextIdDisplay" style="text-align: Left; font-weight: bold; margin-bottom: 10px;">
