@@ -546,7 +546,7 @@
       
         async function updateNextId() {
             try {
-                const res = await fetch("https://script.google.com/macros/s/AKfycbzBGHicrLlytcuHxK6PoSjyzpB8h4se6PS9GjGfy1JYYyULrPS_aO3OYIkL8j9acby9/exec");
+                const res = await fetch("https://script.google.com/macros/s/AKfycbzccmYXxndkmToIFFILe8ax_lhmnuoHiA1wAaZeyqzHaa9YH6LvU_WfEdnJQdCTJKe0/exec");
                 const data = await res.json();
                 document.getElementById("nextIdDisplay").innerText = `ID : ${data.nextId}`;
             } catch (err) {
