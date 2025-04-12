@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NKRAFA Flex Share</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+<br><br><br><br><br><br><br>
+<div align="center">
+  <img src="https://img2.pic.in.th/pic/logo_loader_shorter_bar_fast.gif" width="854" height="492">
+</div>
+
+<script>
+  // ฟังก์ชันอ่าน query string จาก URL เช่น ?id=123
+  function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
+
+  async function autoShare() {
+    try {
+      await liff.init({ liffId: "2007226288-WvjAdxZj" });
+
+      const id = getQueryParam("id");
+      if (!id) {
+        alert("ไม่พบ ID ใน URL");
+        return;
+      }
+
+      const url = `https://script.google.com/macros/s/AKfycbzBGHicrLlytcuHxK6PoSjyzpB8h4se6PS9GjGfy1JYYyULrPS_aO3OYIkL8j9acby9/exec?id=${id}`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (!data.flexJson) {
+        alert("ไม่พบข้อมูลสำหรับ ID นี้");
+        return;
+      }
+
+      if (liff.isApiAvailable('shareTargetPicker')) {
+        await liff.shareTargetPicker([{
+          type: "flex",
+          altText: data.altText,
+          contents: data.flexJson
+        }]);
+        liff.closeWindow();
+      } else {
+        alert('อุปกรณ์ไม่รองรับ shareTargetPicker');
+      }
+
+    } catch (err) {
+      alert('เกิดข้อผิดพลาด: ' + err.message);
+      console.error(err);
+    }
+  }
+
+  window.onload = autoShare;
+</script>
+</body>
+</html>
