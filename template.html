@@ -75,6 +75,20 @@
       max-height: 400px;
       overflow-y: auto;
     }
+
+    .simulator-btn {
+      background-color: #00b900;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .simulator-btn:hover {
+      background-color: #00a000;
+    }
   </style>
 </head>
 <body>
@@ -115,8 +129,7 @@
 
   <div id="codelink" style="display: none;">
       <button id="copyButton" class="copy-btn" onclick="copyCode()">📋 คัดลอกโค้ด JSON</button>&nbsp;&nbsp;
-      ออกแบบ Flex Message ได้ที่นี่: 
-      <a href="https://developers.line.biz/flex-simulator/" target="_blank">https://developers.line.biz/flex-simulator/</a>
+      <button class="simulator-btn" onclick="window.open('https://developers.line.biz/flex-simulator/', '_blank')">ออกแบบ Flex Message ได้ที่นี่</button>
   </div>
 
   <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
