@@ -519,8 +519,9 @@
 
         } catch (error) {
             console.error("Error sending to Google Sheet:", error);
-            Swal.fire('เกิดข้อผิดพลาด', 'ไม่สามารถบันทึกลง Google Sheet ได้', 'error');
+            Swal.fire('เกิดข้อผิดพลาด', `ไม่สามารถบันทึกลง Google Sheet ได้\n\n${JSON.stringify(error)}`, 'error');
             }
+          }
         }
       
         function logout() {
