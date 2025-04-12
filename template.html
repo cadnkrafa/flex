@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>เลือก Flex Template</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+
+    h2 {
+      color: #168abe;
+    }
+
+    .template {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      background-color: #fff;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .template:hover {
+      background-color: #e8f4ff;
+      border-color: #168abe;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>เลือก Flex Template</h2>
+
+  <div class="template" onclick="selectTemplate('template1')">
+    🎨 Template 1: Bubble แบบเรียบง่าย
+  </div>
+
+  <div class="template" onclick="selectTemplate('template2')">
+    🖼️ Template 2: Bubble พร้อมภาพ
+  </div>
+
+  <h3>📦 JSON ของ Template ที่เลือก:</h3>
+  <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
+
+  <script>
+    const templates = {
+      template1: {
+        type: "bubble",
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "Hello, World!",
+              weight: "bold",
+              size: "lg",
+              color: "#333333"
+            }
+          ]
+        }
+      },
+
+      template2: {
+        type: "bubble",
+        hero: {
+          type: "image",
+          url: "https://example.com/sample.jpg",
+          size: "full",
+          aspectRatio: "1.51:1",
+          aspectMode: "cover"
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "Image Header",
+              weight: "bold",
+              size: "lg"
+            }
+          ]
+        }
+      }
+    };
+
+    function selectTemplate(key) {
+      const template = templates[key];
+      localStorage.setItem("selectedFlexJson", JSON.stringify(template));
+      document.getElementById("jsonOutput").textContent = JSON.stringify(template, null, 2);
+    }
+  </script>
+
+</body>
+</html>
