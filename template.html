@@ -108,6 +108,7 @@
     };
 
     function selectTemplate(key) {
+      console.log("Selected template:", key); // ตรวจสอบว่าเมื่อคลิกแล้วฟังก์ชันทำงานหรือไม่
       const template = templates[key];
       localStorage.setItem("selectedFlexJson", JSON.stringify(template));
 
@@ -131,7 +132,7 @@
             <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
             <script>
               window.onload = () => {
-                liff.init({ liffId: "2007226288-WvjAdxZj" }).then(() => {
+                liff.init({ liffId: "your-liff-id" }).then(() => {
                   liff.sendMessages([{
                     type: "flex",
                     altText: "Live Flex Message",
