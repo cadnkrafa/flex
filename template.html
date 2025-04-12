@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
   <meta charset="UTF-8">
@@ -7,87 +7,126 @@
     body {
       font-family: sans-serif;
       padding: 20px;
-      background-color: #f8f9fa;
+      background-color: #f5f7fa;
     }
 
     h2 {
       color: #168abe;
     }
 
-    .template {
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 15px;
-      cursor: pointer;
-      background-color: #fff;
-      transition: all 0.2s ease-in-out;
+    .template-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .template:hover {
-      background-color: #e8f4ff;
+    .template-card {
+      width: 300px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .template-card:hover {
+      transform: scale(1.03);
       border-color: #168abe;
+    }
+
+    .template-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .template-name {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
     pre {
       background: #1e1e1e;
       color: #d4d4d4;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 15px;
+      border-radius: 8px;
       white-space: pre-wrap;
       max-height: 400px;
       overflow-y: auto;
     }
 
-    iframe {
-      width: 100%;
-      height: 500px;
+    button {
+      background-color: #168abe;
+      color: white;
+      padding: 10px 20px;
       border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #005775;
     }
   </style>
 </head>
 <body>
 
-  <h2>เลือก Flex Template</h2>
+  <h2>เลือก Flex Template ที่ต้องการ</h2>
 
-  <div class="template" onclick="selectTemplate('template1')">
-    🎨 Template 1: Bubble แบบเรียบง่าย
-  </div>
+  <div class="template-container">
+    <div class="template-card" onclick="selectTemplate('template1')">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip1.jpg" alt="Template 1">
+      <div class="template-name">Template 1</div>
+    </div>
 
-  <div class="template" onclick="selectTemplate('template2')">
-    🖼️ Template 2: Bubble พร้อมภาพ
+    <div class="template-card" onclick="selectTemplate('template2')">
+      <img src="https://developers-resource.landpress.line.me/fx/clip/clip3.jpg" alt="Template 2">
+      <div class="template-name">Template 2</div>
+    </div>
   </div>
 
   <h3>📦 JSON ของ Template ที่เลือก:</h3>
   <pre id="jsonOutput">ยังไม่ได้เลือก Template</pre>
 
-  <h3>🖥️ Live Preview:</h3>
-  <iframe id="livePreview" src="about:blank"></iframe>
+  <button id="copyButton" onclick="copyCode()" style="display:none;">คัดลอกโค้ด</button>
 
   <script>
     const templates = {
       template1: {
         type: "bubble",
+        hero: {
+          type: "image",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip1.jpg",
+          size: "full",
+          aspectRatio: "2:3",
+          aspectMode: "cover"
+        },
         body: {
           type: "box",
           layout: "vertical",
           contents: [
             {
               type: "text",
-              text: "Hello, World!",
+              text: "Flex Template 1",
               weight: "bold",
-              size: "lg",
-              color: "#333333"
+              size: "xl"
+            },
+            {
+              type: "text",
+              text: "รายละเอียดเพิ่มเติมของเทมเพลต",
+              wrap: true
             }
           ]
         }
       },
-
       template2: {
         type: "bubble",
         hero: {
           type: "image",
-          url: "https://example.com/sample.jpg",
+          url: "https://developers-resource.landpress.line.me/fx/clip/clip3.jpg",
           size: "full",
           aspectRatio: "1.51:1",
           aspectMode: "cover"
@@ -98,9 +137,14 @@
           contents: [
             {
               type: "text",
-              text: "Image Header",
+              text: "Flex Template 2",
               weight: "bold",
-              size: "lg"
+              size: "xl"
+            },
+            {
+              type: "text",
+              text: "ข้อความเพิ่มเติม",
+              wrap: true
             }
           ]
         }
@@ -108,47 +152,28 @@
     };
 
     function selectTemplate(key) {
-      console.log("Selected template:", key); // ตรวจสอบว่าเมื่อคลิกแล้วฟังก์ชันทำงานหรือไม่
       const template = templates[key];
-      localStorage.setItem("selectedFlexJson", JSON.stringify(template));
-
-      // แสดง JSON ของ Template ที่เลือก
       document.getElementById("jsonOutput").textContent = JSON.stringify(template, null, 2);
-
-      // แสดง Live Preview
-      updateLivePreview(template);
+      document.getElementById("copyButton").style.display = "inline-block"; // แสดงปุ่มคัดลอกโค้ด
     }
 
-    function updateLivePreview(template) {
-      const iframe = document.getElementById("livePreview");
-      const iframeDoc = iframe.contentWindow.document;
-      iframeDoc.open();
-      iframeDoc.write(`
-        <html>
-          <head>
-            <title>Live Flex Preview</title>
-          </head>
-          <body>
-            <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-            <script>
-              window.onload = () => {
-                liff.init({ liffId: "your-liff-id" }).then(() => {
-                  liff.sendMessages([{
-                    type: "flex",
-                    altText: "Live Flex Message",
-                    contents: ${JSON.stringify(template)}
-                  }]).then(() => {
-                    alert("Flex Message sent successfully!");
-                  }).catch((err) => {
-                    alert("Error sending message: " + err);
-                  });
-                });
-              };
-            </script>
-          </body>
-        </html>
-      `);
-      iframeDoc.close();
+    function copyCode() {
+      const jsonCode = document.getElementById("jsonOutput").textContent;
+
+      // สร้าง textarea ชั่วคราวสำหรับคัดลอก
+      const textArea = document.createElement("textarea");
+      textArea.value = jsonCode;
+      document.body.appendChild(textArea);
+
+      // เลือกและคัดลอกข้อความ
+      textArea.select();
+      document.execCommand("copy");
+
+      // ลบ textarea ออกจาก DOM
+      document.body.removeChild(textArea);
+
+      // แจ้งผู้ใช้ว่าโค้ดถูกคัดลอก
+      alert("โค้ด JSON ถูกคัดลอกไปยัง clipboard แล้ว!");
     }
   </script>
 
