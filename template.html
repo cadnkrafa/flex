@@ -52,6 +52,14 @@
       color: #00831a;
     }
 
+    .template-size {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      color: #ff0000;
+    }
+
     .copy-btn {
       background-color: #168abe;
       color: white;
@@ -118,32 +126,34 @@
   <div class="template-scroll">
     <div class="template-card" onclick="selectTemplate('template1')">
       <div class="template-name">ลงนามถวายพระพร</div>
-      <img src="https://img2.pic.in.th/pic/532462_0.jpg" alt="Template 1">
+      <img src="https://img5.pic.in.th/file/secure-sv1/532705_0.jpg" alt="Template 1">
+      <div class="template-size">ใช้ถาพขนาด 9:16</div>
     </div>
 
     <div class="template-card" onclick="selectTemplate('template2')">
       <div class="template-name">ข่าวประจำวัน ทอ.</div>
-      <img src="https://img2.pic.in.th/pic/532463_0.jpg" alt="Template 2">
+      <img src="https://img5.pic.in.th/file/secure-sv1/532706_0.jpg" alt="Template 2">
+      <div class="template-size">ใช้ถาพขนาด 3:2</div>
     </div>
 
     <div class="template-card" onclick="selectTemplate('template3')">
       <div class="template-name">เชิญร่วมงาน</div>
-      <img src="https://img5.pic.in.th/file/secure-sv1/532464_0.jpg" alt="Template 3">
+      <img src="https://img2.pic.in.th/pic/532707_0.jpg" alt="Template 3">
     </div>
 
     <div class="template-card" onclick="selectTemplate('template4')">
       <div class="template-name">ลงทะเบียนมี QR Code</div>
-      <img src="https://img5.pic.in.th/file/secure-sv1/532465_0.jpg" alt="Template 4">
+      <img src="https://img5.pic.in.th/file/secure-sv1/532708_0.jpg" alt="Template 4">
     </div>
 
     <div class="template-card" onclick="selectTemplate('template5')">
       <div class="template-name">ลงทะเบียนมีเบอร์ติดต่อ</div>
-      <img src="https://img2.pic.in.th/pic/532466_0.jpg" alt="Template 5">
+      <img src="https://img2.pic.in.th/pic/532709_0.jpg" alt="Template 5">
     </div>
 
     <div class="template-card" onclick="selectTemplate('template6')">
       <div class="template-name">เชิญประชุม</div>
-      <img src="https://img5.pic.in.th/file/secure-sv1/532467_0.jpg" alt="Template 6">
+      <img src="https://img5.pic.in.th/file/secure-sv1/532710_0.jpg" alt="Template 6">
     </div>
   </div>
 
@@ -171,7 +181,6 @@
         "url": "https://img2.pic.in.th/pic/-020468-1.jpg",
         "size": "full",
         "aspectRatio": "9:16",
-        "gravity": "top",
         "aspectMode": "cover"
       },
       {
@@ -192,10 +201,10 @@
               }
             ],
             "backgroundColor": "#eecfffcc",
-            "paddingAll": "10px",
             "cornerRadius": "10px",
             "borderColor": "#a500ff",
-            "borderWidth": "normal"
+            "borderWidth": "normal",
+            "paddingAll": "10px"
           },
           {
             "type": "box",
@@ -215,8 +224,7 @@
                     "type": "text",
                     "text": "ลงนามถวายพระพร",
                     "color": "#ffffff",
-                    "flex": 0,
-                    "offsetTop": "-2px"
+                    "flex": 0
                   },
                   {
                     "type": "filler"
@@ -232,22 +240,20 @@
             "cornerRadius": "4px",
             "spacing": "sm",
             "borderColor": "#ffffff",
-            "margin": "xxl",
             "height": "40px",
             "backgroundColor": "#9200d6cc",
             "action": {
               "type": "uri",
-              "uri": "https://wellwishes.royaloffice.th/",
-              "label": "ลงนามถวายพระพร"
-            }
+              "uri": "https://wellwishes.royaloffice.th/"
+            },
+            "margin": "lg"
           }
         ],
         "position": "absolute",
         "offsetBottom": "0px",
         "offsetStart": "0px",
         "offsetEnd": "0px",
-        "paddingAll": "20px",
-        "paddingTop": "18px"
+        "paddingAll": "20px"
       }
     ],
     "paddingAll": "0px"
@@ -255,27 +261,8 @@
   "footer": {
     "type": "box",
     "layout": "baseline",
+    "backgroundColor": "#000337",
     "contents": [
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
       {
         "type": "text",
         "text": "Share",
@@ -285,12 +272,10 @@
         "color": "#ffffff",
         "action": {
           "type": "uri",
-          "label": "Share",
           "uri": "https://liff.line.me/2007226288-WvjAdxZj?id="
         }
       }
-    ],
-    "backgroundColor": "#000337"
+    ]
   },
   "styles": {
     "footer": {
@@ -298,7 +283,7 @@
       "separatorColor": "#000337"
     }
   }
-      }
+}
 },
       template2: {
         name: "ข่าวประจำวัน ทอ.",
@@ -356,8 +341,7 @@
                     "type": "text",
                     "text": "อ่านข่าวประจำวัน ทอ.",
                     "color": "#ffffff",
-                    "flex": 0,
-                    "offsetTop": "-2px"
+                    "flex": 0
                   },
                   {
                     "type": "filler"
@@ -378,17 +362,15 @@
             "backgroundColor": "#004d76cc",
             "action": {
               "type": "uri",
-              "label": "อ่านข่าวประจำวัน ทอ.",
               "uri": "https://magazine.rtaf.mi.th/rtaf-daily-news-2568-03-26/"
             }
           }
         ],
         "position": "absolute",
-        "offsetBottom": "0px",
         "offsetStart": "0px",
         "offsetEnd": "0px",
         "paddingAll": "20px",
-        "paddingTop": "18px"
+        "offsetBottom": "0px"
       }
     ],
     "paddingAll": "0px"
@@ -396,27 +378,8 @@
   "footer": {
     "type": "box",
     "layout": "baseline",
+    "backgroundColor": "#000337",
     "contents": [
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
       {
         "type": "text",
         "text": "Share",
@@ -426,12 +389,10 @@
         "color": "#ffffff",
         "action": {
           "type": "uri",
-          "label": "Share",
           "uri": "https://liff.line.me/2007226288-WvjAdxZj?id="
         }
       }
-    ],
-    "backgroundColor": "#000337"
+    ]
   },
   "styles": {
     "footer": {
@@ -439,65 +400,26 @@
       "separatorColor": "#000337"
     }
   }
-      }
+}
 },
       template3: {
         name: "เชิญร่วมงาน",
       json: {
   "type": "bubble",
-  "header": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "image",
-            "url": "https://img2.pic.in.th/pic/532418.jpg",
-            "size": "full",
-            "aspectRatio": "16:10",
-            "aspectMode": "cover",
-            "action": {
-              "type": "uri",
-              "uri": "https://line.me/"
-            }
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "text",
-            "text": "ด่วนที่สุด",
-            "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "gravity": "center"
-          }
-        ],
-        "position": "absolute",
-        "flex": 0,
-        "paddingAll": "2px",
-        "width": "65px",
-        "height": "25px",
-        "backgroundColor": "#ff0000",
-        "cornerRadius": "100px",
-        "offsetTop": "18px",
-        "offsetStart": "18px",
-        "paddingStart": "4px",
-        "paddingEnd": "4px"
-      }
-    ],
-    "paddingAll": "0px"
+  "hero": {
+    "type": "image",
+    "url": "https://img2.pic.in.th/pic/532418.jpg",
+    "size": "full",
+    "aspectRatio": "16:10",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://line.me/"
+    }
   },
   "body": {
     "type": "box",
     "layout": "vertical",
-    "spacing": "md",
     "contents": [
       {
         "type": "text",
@@ -509,166 +431,131 @@
       },
       {
         "type": "box",
-        "layout": "vertical",
-        "margin": "sm",
+        "layout": "baseline",
         "spacing": "sm",
         "contents": [
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "📅วันที่",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "9 เมษายน 2568",
-                "wrap": true,
-                "size": "md",
-                "color": "#666666",
-                "flex": 2
-              }
-            ]
+            "type": "text",
+            "text": "📅 วันที่",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
           },
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "⏰เวลา",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "1400",
-                "wrap": true,
-                "color": "#666666",
-                "size": "md",
-                "flex": 2
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "🏤สถานที่",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "สโมสรนคราฟ้า",
-                "wrap": true,
-                "color": "#666666",
-                "size": "md",
-                "flex": 2
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "👔การแต่งกาย",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "ชุดสุภาพ\nตามประเพณีนิยม",
-                "wrap": true,
-                "color": "#666666",
-                "size": "md",
-                "flex": 1
-              }
-            ]
+            "type": "text",
+            "text": "9 เมษายน 2568",
+            "wrap": true,
+            "size": "md",
+            "color": "#666666",
+            "flex": 2
           }
         ],
-        "paddingTop": "5px"
+        "paddingTop": "10px"
       },
       {
         "type": "box",
-        "layout": "vertical",
-        "margin": "sm",
+        "layout": "baseline",
         "spacing": "sm",
         "contents": [
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "กำหนดการ",
-                "size": "sm",
-                "weight": "bold",
-                "decoration": "underline",
-                "align": "center"
-              }
-            ],
-            "backgroundColor": "#00b9ffcc"
+            "type": "text",
+            "text": "⏰ เวลา",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
           },
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "🔸14.00 น. ผู้เข้าร่วมพร้อมกันและตั้งขบวนบริเวณถนนหน้าสโมสร\n🔸14.25 น. ผบช. เดินทางมาถึง และเริ่มพิธีสรงน้ำพระ\n🔸15.00 น. Soft Drink",
-                "size": "sm",
-                "wrap": true
-              }
-            ]
+            "type": "text",
+            "text": "1400",
+            "wrap": true,
+            "color": "#666666",
+            "size": "md",
+            "flex": 2
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "🏤 สถานที่",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "สโมสรนคราฟ้า",
+            "wrap": true,
+            "color": "#666666",
+            "size": "md",
+            "flex": 2
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "👔 การแต่งกาย",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "ชุดสุภาพ\nตามประเพณีนิยม",
+            "wrap": true,
+            "color": "#666666",
+            "size": "md",
+            "flex": 1
           }
         ],
-        "paddingTop": "5px",
-        "paddingBottom": "5px"
+        "paddingBottom": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "กำหนดการ",
+            "size": "sm",
+            "weight": "bold",
+            "decoration": "underline",
+            "align": "center"
+          }
+        ],
+        "backgroundColor": "#00b9ffcc"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "🔸14.00 น. ผู้เข้าร่วมพร้อมกันและตั้งขบวนบริเวณถนนหน้าสโมสร\n🔸14.25 น. ผบช. เดินทางมาถึง และเริ่มพิธีสรงน้ำพระ\n🔸15.00 น. Soft Drink",
+            "size": "sm",
+            "wrap": true
+          }
+        ],
+        "paddingTop": "5px"
       }
     ]
   },
   "footer": {
     "type": "box",
     "layout": "baseline",
+    "backgroundColor": "#000337",
     "contents": [
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
       {
         "type": "text",
         "text": "Share",
@@ -678,12 +565,10 @@
         "color": "#ffffff",
         "action": {
           "type": "uri",
-          "label": "Share",
           "uri": "https://liff.line.me/2007226288-WvjAdxZj?id="
         }
       }
-    ],
-    "backgroundColor": "#000337"
+    ]
   },
   "styles": {
     "footer": {
@@ -691,65 +576,26 @@
       "separatorColor": "#000337"
     }
   }
-      }
+}
 },
       template4: {
         name: "ลงทะเบียนมี QR Code",
       json: {
   "type": "bubble",
-  "header": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "image",
-            "url": "https://img5.pic.in.th/file/secure-sv1/Artboard-1163504d66ad839b1.png",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "action": {
-              "type": "uri",
-              "uri": "https://line.me/"
-            }
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "text",
-            "text": "ด่วนที่สุด",
-            "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "gravity": "center"
-          }
-        ],
-        "position": "absolute",
-        "flex": 0,
-        "paddingAll": "2px",
-        "width": "65px",
-        "height": "25px",
-        "backgroundColor": "#ff0000",
-        "cornerRadius": "100px",
-        "offsetTop": "18px",
-        "offsetStart": "18px",
-        "paddingStart": "4px",
-        "paddingEnd": "4px"
-      }
-    ],
-    "paddingAll": "0px"
+  "hero": {
+    "type": "image",
+    "url": "https://img5.pic.in.th/file/secure-sv1/Artboard-1163504d66ad839b1.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://line.me/"
+    }
   },
   "body": {
     "type": "box",
     "layout": "vertical",
-    "spacing": "md",
     "contents": [
       {
         "type": "text",
@@ -761,94 +607,78 @@
       },
       {
         "type": "box",
-        "layout": "vertical",
-        "margin": "sm",
+        "layout": "baseline",
         "spacing": "sm",
         "contents": [
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "📅วันที่",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "9 เมษายน 2568",
-                "wrap": true,
-                "size": "md",
-                "color": "#666666",
-                "flex": 2
-              }
-            ]
+            "type": "text",
+            "text": "📅 วันที่",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
           },
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "⏰เวลา",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "0800 - 1600",
-                "wrap": true,
-                "color": "#666666",
-                "size": "md",
-                "flex": 2
-              }
-            ]
+            "type": "text",
+            "text": "9 เมษายน 2568",
+            "wrap": true,
+            "size": "md",
+            "color": "#666666",
+            "flex": 2
           }
         ],
-        "paddingTop": "5px"
+        "paddingTop": "10px"
       },
       {
         "type": "box",
-        "layout": "vertical",
-        "margin": "sm",
+        "layout": "baseline",
         "spacing": "sm",
         "contents": [
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "เน้นย้ำ",
-                "color": "#ff0000",
-                "size": "sm",
-                "weight": "bold",
-                "decoration": "underline"
-              }
-            ]
+            "type": "text",
+            "text": "⏰ เวลา",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
           },
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "ขอให้ ผบช.รร.นนก., หน.นขต.รร.นนก., หน.บก.รร.นนก., ข้าราชการ, ลูกจ้าง และพนักงานราชการ ลงทะเบียนโดยการกดลิงค์หรือการสแกนคิวอาร์โค้ดทุกท่าน เพื่อบันทึกเป็นข้อมูลตัวชี้วัดส่งให้ ศอ.ปส.ทอ.",
-                "color": "#ff0000",
-                "size": "sm",
-                "wrap": true
-              }
-            ]
+            "type": "text",
+            "text": "0800 - 1600",
+            "wrap": true,
+            "color": "#666666",
+            "size": "md",
+            "flex": 2
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "เน้นย้ำ",
+            "color": "#ff0000",
+            "size": "sm",
+            "weight": "bold",
+            "decoration": "underline"
           }
         ],
-        "paddingTop": "5px"
+        "paddingTop": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ขอให้ ผบช.รร.นนก., หน.นขต.รร.นนก., หน.บก.รร.นนก., ข้าราชการ, ลูกจ้าง และพนักงานราชการ ลงทะเบียนโดยการกดลิงค์หรือการสแกนคิวอาร์โค้ดทุกท่าน เพื่อบันทึกเป็นข้อมูลตัวชี้วัดส่งให้ ศอ.ปส.ทอ.",
+            "color": "#ff0000",
+            "size": "sm",
+            "wrap": true
+          }
+        ]
       },
       {
         "type": "box",
@@ -876,36 +706,19 @@
             },
             "style": "primary",
             "color": "#0097ff",
-            "margin": "md"
+            "margin": "md",
+            "height": "sm"
           }
-        ]
+        ],
+        "paddingTop": "5px"
       }
     ]
   },
   "footer": {
     "type": "box",
     "layout": "baseline",
+    "backgroundColor": "#000337",
     "contents": [
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
       {
         "type": "text",
         "text": "Share",
@@ -915,12 +728,10 @@
         "color": "#ffffff",
         "action": {
           "type": "uri",
-          "label": "Share",
           "uri": "https://liff.line.me/2007226288-WvjAdxZj?id="
         }
       }
-    ],
-    "backgroundColor": "#000337"
+    ]
   },
   "styles": {
     "footer": {
@@ -928,276 +739,151 @@
       "separatorColor": "#000337"
     }
   }
-      }
+}
 },
       template5: {
         name: "ลงทะเบียนมีเบอร์ติดต่อ",
       json: {
   "type": "bubble",
-  "header": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "image",
-            "url": "https://img5.pic.in.th/file/secure-sv1/528844.jpg",
-            "size": "full",
-            "aspectRatio": "16:9",
-            "aspectMode": "cover"
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "text",
-            "text": "ด่วนที่สุด",
-            "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "gravity": "center"
-          }
-        ],
-        "position": "absolute",
-        "flex": 0,
-        "paddingAll": "2px",
-        "width": "65px",
-        "height": "25px",
-        "backgroundColor": "#ff0000",
-        "cornerRadius": "100px",
-        "offsetTop": "18px",
-        "offsetStart": "18px",
-        "paddingStart": "4px",
-        "paddingEnd": "4px"
-      }
-    ],
-    "paddingAll": "0px"
+  "hero": {
+    "type": "image",
+    "url": "https://img5.pic.in.th/file/secure-sv1/528844.jpg",
+    "size": "full",
+    "aspectRatio": "16:9",
+    "aspectMode": "cover"
   },
   "body": {
     "type": "box",
     "layout": "vertical",
     "contents": [
       {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "md",
-        "contents": [
-          {
-            "type": "text",
-            "text": "📢 เปิดรับสมัคร !!! เยาวชนทั่วไป \nอายุ 7-18 ปี  ⚽️ เข้าร่วมโครงการอบรมกีฬาบุตรข้าราชการ ทอ. \nประจำปี 2568 🥋",
-            "wrap": true,
-            "weight": "bold",
-            "gravity": "center",
-            "size": "md"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "sm",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "📅วันที่",
-                    "size": "md",
-                    "flex": 1,
-                    "weight": "bold"
-                  },
-                  {
-                    "type": "text",
-                    "text": "28 เม.ย. - 2 พ.ค.68",
-                    "wrap": true,
-                    "size": "md",
-                    "color": "#666666",
-                    "flex": 2
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "⏰เวลา",
-                    "size": "md",
-                    "flex": 1,
-                    "weight": "bold"
-                  },
-                  {
-                    "type": "text",
-                    "text": "วันจันทร์ - วันศุกร์\n0830 - 1100",
-                    "wrap": true,
-                    "color": "#666666",
-                    "size": "md",
-                    "flex": 2
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "🏤สถานที่",
-                    "size": "md",
-                    "flex": 1,
-                    "weight": "bold"
-                  },
-                  {
-                    "type": "text",
-                    "text": "สนามกีฬา รร.นนก.",
-                    "wrap": true,
-                    "color": "#666666",
-                    "size": "md",
-                    "flex": 2
-                  }
-                ]
-              }
-            ],
-            "paddingTop": "5px"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "sm",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "เปิดรับ 2 ประเภท กีฬา (รับจำนวนจำกัด)",
-                    "size": "sm",
-                    "weight": "bold",
-                    "decoration": "underline",
-                    "color": "#ff0000"
-                  }
-                ]
-              },
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "1. ฟุตซอล ⚽️\n2. เทควันโด 🥋",
-                    "size": "sm",
-                    "wrap": true,
-                    "color": "#ff0000"
-                  }
-                ]
-              }
-            ],
-            "paddingTop": "5px"
-          }
-        ],
-        "paddingAll": "18px"
+        "type": "text",
+        "text": "📢 เปิดรับสมัคร !!! เยาวชนทั่วไป \nอายุ 7-18 ปี  ⚽️ เข้าร่วมโครงการอบรมกีฬาบุตรข้าราชการ ทอ. \nประจำปี 2568 🥋",
+        "wrap": true,
+        "weight": "bold"
       },
       {
         "type": "box",
-        "layout": "horizontal",
+        "layout": "vertical",
         "contents": [
           {
             "type": "box",
-            "layout": "vertical",
+            "layout": "baseline",
             "contents": [
               {
-                "type": "image",
-                "url": "https://img5.pic.in.th/file/secure-sv1/532415.jpg",
-                "aspectMode": "cover",
-                "size": "full"
+                "type": "text",
+                "text": "📅 วันที่",
+                "flex": 1,
+                "weight": "bold"
+              },
+              {
+                "type": "text",
+                "text": "28 เม.ย. - 2 พ.ค.68",
+                "wrap": true,
+                "color": "#666666",
+                "flex": 2
               }
-            ],
-            "cornerRadius": "100px",
-            "width": "72px",
-            "height": "72px"
+            ]
           },
           {
             "type": "box",
-            "layout": "vertical",
+            "layout": "baseline",
             "contents": [
               {
                 "type": "text",
-                "contents": [
-                  {
-                    "type": "span",
-                    "text": "☎️ติดต่อสอบถามรายละเอียด",
-                    "weight": "bold",
-                    "color": "#000000"
-                  }
-                ],
-                "size": "sm",
-                "wrap": true
+                "text": "⏰ เวลา",
+                "flex": 1,
+                "weight": "bold"
               },
               {
                 "type": "text",
-                "text": "hello, world",
-                "contents": [
-                  {
-                    "type": "span",
-                    "text": "ร.ต.ภัทรพงศ์ฯ  "
-                  },
-                  {
-                    "type": "span",
-                    "text": "09 5502 4097",
-                    "color": "#001ffe",
-                    "weight": "bold"
-                  }
-                ],
-                "size": "sm",
-                "action": {
-                  "type": "message",
-                  "label": "0955024097",
-                  "text": "0955024097"
-                }
+                "text": "วันจันทร์ - วันศุกร์\n0830 - 1100",
+                "wrap": true,
+                "color": "#666666",
+                "flex": 2
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "🏤 สถานที่",
+                "flex": 1,
+                "weight": "bold"
               },
               {
                 "type": "text",
-                "text": "hello, world",
-                "contents": [
-                  {
-                    "type": "span",
-                    "text": "ร.ต.หญิง.รุ่งนภาฯ  "
-                  },
-                  {
-                    "type": "span",
-                    "text": "09 5498 7624",
-                    "color": "#001ffe",
-                    "weight": "bold"
-                  }
-                ],
-                "size": "sm",
-                "action": {
-                  "type": "message",
-                  "text": "0954987624",
-                  "label": "0954987624"
-                }
+                "text": "สนามกีฬา รร.นนก.",
+                "wrap": true,
+                "flex": 2,
+                "color": "#666666"
               }
             ]
           }
         ],
-        "spacing": "xl",
-        "paddingStart": "10px",
+        "paddingTop": "10px",
         "paddingBottom": "10px"
+      },
+      {
+        "type": "text",
+        "text": "เปิดรับ 2 ประเภท กีฬา (จำนวนจำกัด)",
+        "weight": "bold",
+        "decoration": "underline",
+        "color": "#ff0000",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "1. ฟุตซอล ⚽️\n2. เทควันโด 🥋",
+        "wrap": true,
+        "color": "#ff0000",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "\n☎️ ติดต่อสอบถามรายละเอียด",
+        "weight": "bold",
+        "margin": "md",
+        "size": "sm"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ร.ต.ภัทรพงศ์ฯ",
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "09 5502 4097",
+            "weight": "bold",
+            "color": "#001bff",
+            "size": "sm"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ร.ต.หญิง.รุ่งนภาฯ",
+            "size": "sm"
+          },
+          {
+            "type": "text",
+            "text": "09 5498 7624",
+            "weight": "bold",
+            "color": "#001bff",
+            "size": "sm"
+          }
+        ]
       },
       {
         "type": "box",
@@ -1212,42 +898,20 @@
             },
             "style": "primary",
             "color": "#0097ff",
-            "margin": "md"
+            "margin": "md",
+            "height": "sm"
           }
         ],
-        "spacing": "sm",
-        "paddingBottom": "15px",
-        "paddingStart": "15px",
-        "paddingEnd": "15px"
+        "spacing": "sm"
       }
     ],
-    "paddingAll": "0px",
-    "margin": "md"
+    "paddingAll": "20px"
   },
   "footer": {
     "type": "box",
     "layout": "baseline",
+    "backgroundColor": "#000337",
     "contents": [
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
       {
         "type": "text",
         "text": "Share",
@@ -1257,12 +921,10 @@
         "color": "#ffffff",
         "action": {
           "type": "uri",
-          "label": "Share",
           "uri": "https://liff.line.me/2007226288-WvjAdxZj?id="
         }
       }
-    ],
-    "backgroundColor": "#000337"
+    ]
   },
   "styles": {
     "footer": {
@@ -1270,65 +932,26 @@
       "separatorColor": "#000337"
     }
   }
-      }
+}
 },
       template6: {
         name: "เชิญประชุม",
       json: {
   "type": "bubble",
-  "header": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "image",
-            "url": "https://img5.pic.in.th/file/secure-sv1/485867715_971424638456955_5478997547129109263_n.jpg",
-            "size": "full",
-            "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "action": {
-              "type": "uri",
-              "uri": "https://line.me/"
-            }
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "text",
-            "text": "ด่วนที่สุด",
-            "size": "xs",
-            "color": "#ffffff",
-            "align": "center",
-            "gravity": "center"
-          }
-        ],
-        "position": "absolute",
-        "flex": 0,
-        "paddingAll": "2px",
-        "width": "65px",
-        "height": "25px",
-        "backgroundColor": "#ff0000",
-        "cornerRadius": "100px",
-        "offsetTop": "18px",
-        "offsetStart": "18px",
-        "paddingStart": "4px",
-        "paddingEnd": "4px"
-      }
-    ],
-    "paddingAll": "0px"
+  "hero": {
+    "type": "image",
+    "url": "https://img5.pic.in.th/file/secure-sv1/485867715_971424638456955_5478997547129109263_n.jpg",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://line.me/"
+    }
   },
   "body": {
     "type": "box",
     "layout": "vertical",
-    "spacing": "md",
     "contents": [
       {
         "type": "text",
@@ -1340,165 +963,148 @@
       },
       {
         "type": "box",
-        "layout": "vertical",
-        "margin": "sm",
+        "layout": "baseline",
         "spacing": "sm",
         "contents": [
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "📅วันที่",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "9 เมษายน 2568",
-                "wrap": true,
-                "size": "md",
-                "color": "#666666",
-                "flex": 2
-              }
-            ]
+            "type": "text",
+            "text": "📅 วันที่",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
           },
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "⏰เวลา",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "0800 - 1600",
-                "wrap": true,
-                "color": "#666666",
-                "size": "md",
-                "flex": 2
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "🏤สถานที่",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "ห้องประชุมเฉลิมอากาศ",
-                "wrap": true,
-                "color": "#666666",
-                "size": "md",
-                "flex": 2
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "👔การแต่งกาย",
-                "size": "md",
-                "flex": 1,
-                "weight": "bold"
-              },
-              {
-                "type": "text",
-                "text": "ชุดปฏิบัติงาน",
-                "wrap": true,
-                "color": "#666666",
-                "size": "md",
-                "flex": 1
-              }
-            ]
+            "type": "text",
+            "text": "9 เมษายน 2568",
+            "wrap": true,
+            "size": "md",
+            "color": "#666666",
+            "flex": 2
           }
         ],
-        "paddingTop": "5px"
+        "paddingTop": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "⏰ เวลา",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "0800 - 1600",
+            "wrap": true,
+            "color": "#666666",
+            "size": "md",
+            "flex": 2
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "🏤 สถานที่",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "ห้องประชุมเฉลิมอากาศ",
+            "wrap": true,
+            "color": "#666666",
+            "size": "md",
+            "flex": 2
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "👔 การแต่งกาย",
+            "size": "md",
+            "flex": 1,
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "ชุดปฏิบัติงาน",
+            "wrap": true,
+            "color": "#666666",
+            "size": "md",
+            "flex": 1
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ผู้เข้าร่วมประชุม",
+            "color": "#ff0000",
+            "size": "sm",
+            "weight": "bold",
+            "decoration": "underline"
+          }
+        ],
+        "paddingTop": "10px"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ผบ.รร.นนก. (ประธาน)\nรอง ผบ.รร.นนก.\nเสธ.รร.นนก.\nรอง เสธ.รร.นนก.\nหน.นขต.รร.นนก.\nหน.นขต.บก.รร.นนก.",
+            "color": "#ff0000",
+            "size": "sm",
+            "wrap": true
+          }
+        ]
       },
       {
         "type": "box",
         "layout": "vertical",
-        "margin": "sm",
-        "spacing": "sm",
         "contents": [
           {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "ผู้เข้าร่วมประชุม",
-                "color": "#ff0000",
-                "size": "sm",
-                "weight": "bold",
-                "decoration": "underline"
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "ผบ.รร.นนก. (ประธาน)\nรอง ผบ.รร.นนก.\nเสธ.รร.นนก.\nรอง เสธ.รร.นนก.\nหน.นขต.รร.นนก.\nหน.นขต.บก.รร.นนก.",
-                "color": "#ff0000",
-                "size": "sm",
-                "wrap": true
-              }
-            ]
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "หนังสือเชิญประชุม",
+              "uri": "https://drive.google.com/file/d/1CaJO8DWe6TCSITibAeNl8lv4zf_97YkR/view?usp=sharing"
+            },
+            "style": "primary",
+            "height": "sm",
+            "color": "#0097ff"
           }
         ],
-        "paddingTop": "5px"
+        "paddingTop": "10px"
       }
     ]
   },
   "footer": {
     "type": "box",
     "layout": "baseline",
+    "backgroundColor": "#000337",
     "contents": [
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
-      {
-        "type": "text",
-        "text": ".",
-        "color": "#000337"
-      },
       {
         "type": "text",
         "text": "Share",
@@ -1508,12 +1114,10 @@
         "color": "#ffffff",
         "action": {
           "type": "uri",
-          "label": "Share",
           "uri": "https://liff.line.me/2007226288-WvjAdxZj?id="
         }
       }
-    ],
-    "backgroundColor": "#000337"
+    ]
   },
   "styles": {
     "footer": {
@@ -1531,7 +1135,7 @@
     
     if (selected && selected.json) {
       // แสดงชื่อ Template ด้านบนกรอบ <pre>
-      templateNameElement.textContent = `🧾 Template: ${selected.name}`;
+      templateNameElement.textContent = `🧾 Code Template: ${selected.name}`;
       
       // แสดง JSON ในกรอบ <pre>
       const output = JSON.stringify(selected.json, null, 2);
