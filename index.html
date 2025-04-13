@@ -461,8 +461,11 @@
         <form id="flexJsonForm">
             <!-- แสดง ID ถัดไป -->
             <div style="margin-bottom: 10px;">
-                ID : <span id="nextIdDisplay" style="font-weight: bold; color: #003a54;"></span>
-                <span class="blinking-text" style="font-weight: bold; color: #ff0000;">&emsp;อย่าลืมใส่เลข ID ในโค้ด Share ( ...?id= )</span>
+                <span style="font-weight: bold; color: #003a54;">ID : </span>
+                <span id="nextIdDisplay" style="font-weight: bold; color: #003a54;"></span>
+                <span class="blinking-text" style="font-weight: bold; color: #ff0000;">
+                    &emsp;อย่าลืมใส่เลข ID ในโค้ด Share ( ...?id=<span id="idInText"></span> )
+                </span>
             </div>
             <input type="text" name="flex_altText" id="altTextInput" placeholder="ใส่ข้อความแคปชั่น" spellcheck="false" data-ms-editor="true">
             <textarea name="flex_json" id="flexJsonInput" placeholder="กด Ctrl+V เพื่อวาง Flex JSON ที่นี่" spellcheck="false" data-ms-editor="true"></textarea>
@@ -609,6 +612,7 @@
                 const res = await fetch("https://script.google.com/macros/s/AKfycbzccmYXxndkmToIFFILe8ax_lhmnuoHiA1wAaZeyqzHaa9YH6LvU_WfEdnJQdCTJKe0/exec");
                 const data = await res.json();
                 document.getElementById("nextIdDisplay").innerText = `${data.nextId}`;
+                document.getElementById("idInText").innerText = `${data.nextId}`;
             } catch (err) {
                 console.error("Failed to fetch next ID", err);
                 document.getElementById("nextIdDisplay").innerText = "ไม่สามารถโหลดได้";
