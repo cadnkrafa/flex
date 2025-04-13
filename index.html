@@ -162,13 +162,14 @@
         #btnLogout:hover {
             background-color: #cc0000;
         }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
+        @keyframes blinkWithPause {
+            0%   { opacity: 1; }
+            85%  { opacity: 1; }  /* ค้างไว้จนถึง 85% (ประมาณ 3 วิจาก 3.5 วิรวม) */
+            90%  { opacity: 0; }  /* หายไปแป๊บเดียว */
             100% { opacity: 1; }
         }
         .blinking-text {
-            animation: blink 3s infinite;
+            animation: blinkWithPause 3.5s ease-in-out infinite;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
